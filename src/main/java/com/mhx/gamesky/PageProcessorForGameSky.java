@@ -1,4 +1,4 @@
-package com.mhx;
+package com.mhx.gamesky;
 
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
@@ -8,24 +8,23 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
-public class WebPageProcessor implements PageProcessor {
+public class PageProcessorForGameSky implements PageProcessor {
 
     private Site site = Site.me();
-    private List<Article> articles;
+    private List<ArticleOfGameSky> articles;
 
-    public WebPageProcessor(List<Article> articles) {
+    public PageProcessorForGameSky(List<ArticleOfGameSky> articles) {
         this.articles = Objects.requireNonNull(articles);
     }
 
-    public WebPageProcessor() {
+    public PageProcessorForGameSky() {
         this.articles = null;
     }
 
     @Override
     public void process(Page page) {
-        Article article = new Article();
+        ArticleOfGameSky article = new ArticleOfGameSky();
 
         //set url
         String url = page.getUrl().toString();

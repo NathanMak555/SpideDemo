@@ -1,23 +1,23 @@
-package com.mhx;
+package com.mhx.gamesky;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-public class Article {
+public class ArticleOfGameSky {
 
     private String title;
     private String content;
     private LocalDateTime dateTime;
     private String url;
 
-    public Article(String title, String content, LocalDateTime dateTime, String url) {
+    public ArticleOfGameSky(String title, String content, LocalDateTime dateTime, String url) {
         this.title = title;
         this.content = content;
         this.dateTime = dateTime;
         this.url = url;
     }
 
-    public Article() {
+    public ArticleOfGameSky() {
         title = "";
         content = "";
         dateTime = LocalDateTime.now();
