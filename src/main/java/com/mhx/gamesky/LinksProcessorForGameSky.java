@@ -24,7 +24,6 @@ public class LinksProcessorForGameSky implements PageProcessor {
 
     @Override
     public void process(Page page) {
-        String ss = page.getHtml().css(".Mid1_M>:first-child>:nth-child(2)").toString();
         List<String> originLinks = page.getHtml().css(".Mid1_M>:first-child>:nth-child(2)>.ptxt").links().regex("http://www.gamersky.com/news/\\w+/\\w+.shtml").all();
         links.addAll(originLinks);
         App.THE_LOGGER.info(links.toString());

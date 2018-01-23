@@ -34,7 +34,7 @@ public class PageProcessorForGameSky implements PageProcessor {
         //set title
         String titleContent = page.getHtml().xpath("//div[@class='Mid2L_tit']/h1/text()").toString();
         App.THE_LOGGER.info(titleContent);
-        article.setTitle(titleContent);
+        article.setTitle(titleContent.trim());
 
         //set dateTime
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -49,7 +49,7 @@ public class PageProcessorForGameSky implements PageProcessor {
             articleContent.append(s);
         }
         App.THE_LOGGER.info(articleContent.toString());
-        article.setContent(articleContent.toString());
+        article.setContent(articleContent.toString().trim());
 
         articles.add(article);
 
