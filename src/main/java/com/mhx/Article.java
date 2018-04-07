@@ -1,27 +1,26 @@
-package com.mhx.ithome;
+package com.mhx;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
 
-public class ArticleOfITHome {
+public class Article {
 
     private String title;
     private String content;
     private LocalDateTime dateTime;
     private String url;
 
-    public ArticleOfITHome() {
+    public Article(String title, String content, LocalDateTime dateTime, String url) {
+        this.title = title;
+        this.content = content;
+        this.dateTime = dateTime;
+        this.url = url;
+    }
+
+    public Article() {
         this.title = "";
         this.content = "";
         this.dateTime = LocalDateTime.now();
         this.url = "";
-    }
-
-    public ArticleOfITHome(String title, String content, LocalDateTime dateTime, String url) {
-        this.title = Objects.requireNonNull(title);
-        this.content = Objects.requireNonNull(content);
-        this.dateTime =Objects.requireNonNull(dateTime);
-        this.url = Objects.requireNonNull(url);
     }
 
     public String getTitle() {
@@ -37,7 +36,7 @@ public class ArticleOfITHome {
     }
 
     public void setContent(String content) {
-        this.content += content;
+        this.content = content;
     }
 
     public LocalDateTime getDateTime() {
@@ -54,5 +53,9 @@ public class ArticleOfITHome {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public void appendContent(String content) {
+        this.content += content;
     }
 }

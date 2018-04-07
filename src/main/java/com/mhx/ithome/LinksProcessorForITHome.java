@@ -1,22 +1,18 @@
 package com.mhx.ithome;
 
+import com.mhx.AbstractPageProcessor;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.processor.PageProcessor;
 
 import java.util.List;
 import java.util.Objects;
 
-public class LinksProcessorForITHome implements PageProcessor {
+public class LinksProcessorForITHome extends AbstractPageProcessor {
 
-    private Site site = Site.me();
     private List<String> links;
 
-    public LinksProcessorForITHome() {
-        links = null;
-    }
-
-    public LinksProcessorForITHome(List<String> links) {
+    LinksProcessorForITHome(List<String> links) {
+        super(Site.me());
         this.links = Objects.requireNonNull(links);
     }
 
@@ -25,10 +21,5 @@ public class LinksProcessorForITHome implements PageProcessor {
         List<String> originLinks = page.getHtml().css(".new-list>div").regex("https://www.ithome.com/html/it/\\w+.htm").all();
         links.addAll(originLinks);
         ITHomeApp.THE_LOGGER.info(links.toString());
-    }
-
-    @Override
-    public Site getSite() {
-        return site;
     }
 }
